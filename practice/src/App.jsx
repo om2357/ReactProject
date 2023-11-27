@@ -15,9 +15,6 @@ function App() {
     count = count - 1;
     setCount(count)
   }
-
-  
-
   return (
     <>
       <h1>Om kumar</h1>
