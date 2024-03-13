@@ -1,53 +1,31 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import Navbar from "./Components/Navbar";
+import TextForm from "./Components/TextForm";
+import React, { useState } from 'react';
+
+
 
 function App() {
+  const [mode, setMode] = useState('light');
+  const toggleMode = () =>
+  {
+    if(mode === 'light'){
+      setMode('dark');
+      document.body.style.backgroundColor = '#152b3f'
+    }
+    else{
+      setMode('light');
+      document.body.style.backgroundColor = 'light'
+    }
+  }
+
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
-        <div className="container-fluid">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarTogglerDemo01"
-            aria-controls="navbarTogglerDemo01"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a className="navbar-brand" href="/">
-              Text Play
-            </a>
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/">
-                  About
-                </a>
-              </li>
-            </ul>
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"/>
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
-          </div>
-        </div>
-      </nav>
+  
+      <Navbar Heading = "TextPlay" mode={mode} toggleMode={toggleMode}/>
+      <div className="container">
+      <TextForm heading = "Enter the text to analyze" mode={mode}/>
+      </div>
     </>
   );
 }
