@@ -40,7 +40,6 @@ function Navbar(props) {
                 <button className="btn btn-outline-success" type="submit">
                 Search
                 </button>
-
                 
             </form>
             <div className={`form-check light mx-3 form-switch text-${props.mode ==='light'?'dark':'light'}`}>
